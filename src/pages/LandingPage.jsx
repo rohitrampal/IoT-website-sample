@@ -58,6 +58,8 @@ export default function LandingPage() {
   const navigate = useNavigate();
   const login = useStore(state => state.login);
   const { showToast } = useToast();
+  const theme = useStore(state => state.theme);
+  const toggleTheme = useStore(state => state.toggleTheme);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -80,21 +82,40 @@ export default function LandingPage() {
 
       {/* Header */}
       <header className="container mx-auto px-4 sm:px-6 py-3 sm:py-4 relative z-10">
-        <div className="flex justify-between items-center">
-          <h1 className="text-lg sm:text-2xl font-bold text-primary-700 dark:text-primary-400 relative">
-            <span className="relative z-10">IoT Solutions Inc.</span>
+        <div className="flex justify-between items-center gap-2 sm:gap-4">
+          <h1 className="text-lg sm:text-2xl font-bold text-primary-700 dark:text-primary-400 relative flex-shrink-0 min-w-0">
+            <span className="relative z-10 truncate">IoT Solutions Inc.</span>
             <span className="absolute inset-0 blur-sm opacity-50 hidden sm:block">IoT Solutions Inc.</span>
           </h1>
-          <button
-            onClick={() => setShowLogin(!showLogin)}
-            className="btn-primary relative overflow-hidden group text-sm sm:text-base px-3 sm:px-4 py-1.5 sm:py-2"
-            style={{
-              transformStyle: 'preserve-3d',
-            }}
-          >
-            <span className="relative z-10">{showLogin ? 'Close' : 'Login'}</span>
-            <span className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-          </button>
+          <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+            <button
+              onClick={() => setShowLogin(!showLogin)}
+              className="btn-primary relative overflow-hidden group text-sm sm:text-base px-3 sm:px-4 py-1.5 sm:py-2"
+              style={{
+                transformStyle: 'preserve-3d',
+              }}
+              aria-label={showLogin ? 'Close login modal' : 'Open login modal'}
+            >
+              <span className="relative z-10">{showLogin ? 'Close' : 'Login'}</span>
+              <span className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </button>
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === 'light' ? (
+                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
       </header>
 
