@@ -79,15 +79,15 @@ export default function LandingPage() {
       <FloatingElements />
 
       {/* Header */}
-      <header className="container mx-auto px-6 py-4 relative z-10">
+      <header className="container mx-auto px-4 sm:px-6 py-3 sm:py-4 relative z-10">
         <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-primary-700 dark:text-primary-400 relative">
+          <h1 className="text-lg sm:text-2xl font-bold text-primary-700 dark:text-primary-400 relative">
             <span className="relative z-10">IoT Solutions Inc.</span>
-            <span className="absolute inset-0 blur-sm opacity-50">IoT Solutions Inc.</span>
+            <span className="absolute inset-0 blur-sm opacity-50 hidden sm:block">IoT Solutions Inc.</span>
           </h1>
           <button
             onClick={() => setShowLogin(!showLogin)}
-            className="btn-primary relative overflow-hidden group"
+            className="btn-primary relative overflow-hidden group text-sm sm:text-base px-3 sm:px-4 py-1.5 sm:py-2"
             style={{
               transformStyle: 'preserve-3d',
             }}
@@ -100,9 +100,9 @@ export default function LandingPage() {
 
       {/* Login Modal */}
       {showLogin && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 animate-fade-in backdrop-blur-sm">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 animate-fade-in backdrop-blur-sm p-4">
           <div 
-            className="bg-white dark:bg-gray-800 rounded-lg p-8 max-w-md w-full mx-4 animate-slide-up relative overflow-hidden"
+            className="bg-white dark:bg-gray-800 rounded-lg p-6 sm:p-8 max-w-md w-full animate-slide-up relative overflow-hidden max-h-[90vh] overflow-y-auto"
             style={{
               transformStyle: 'preserve-3d',
               boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',
@@ -110,40 +110,40 @@ export default function LandingPage() {
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-purple-500/10 opacity-50"></div>
             <div className="relative z-10">
-              <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
-              <form onSubmit={handleLogin} className="space-y-4">
+              <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center">Login</h2>
+              <form onSubmit={handleLogin} className="space-y-3 sm:space-y-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Email</label>
+                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2">Email</label>
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="input-field"
+                    className="input-field text-sm"
                     placeholder="john@example.com"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Password</label>
+                  <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2">Password</label>
                   <input
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="input-field"
+                    className="input-field text-sm"
                     placeholder="password123"
                     required
                   />
                 </div>
-                <button type="submit" className="btn-primary w-full relative overflow-hidden group">
+                <button type="submit" className="btn-primary w-full relative overflow-hidden group text-sm sm:text-base">
                   <span className="relative z-10">Sign In</span>
                   <span className="absolute inset-0 bg-gradient-to-r from-primary-400 to-primary-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                 </button>
               </form>
-              <div className="mt-4 text-sm text-gray-600 dark:text-gray-400">
-                <p className="font-semibold mb-2">Demo Credentials:</p>
-                <p>john@example.com / password123</p>
-                <p>jane@example.com / password123</p>
-                <p>bob@example.com / password123</p>
+              <div className="mt-3 sm:mt-4 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+                <p className="font-semibold mb-1 sm:mb-2">Demo Credentials:</p>
+                <p className="break-all">john@example.com / password123</p>
+                <p className="break-all">jane@example.com / password123</p>
+                <p className="break-all">bob@example.com / password123</p>
               </div>
             </div>
           </div>
@@ -151,10 +151,10 @@ export default function LandingPage() {
       )}
 
       {/* Hero Section */}
-      <section className="container mx-auto px-6 py-16 text-center relative z-10">
+      <section className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 text-center relative z-10">
         <div className="relative">
           <h1 
-            className="text-5xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white animate-fade-in relative"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 text-gray-900 dark:text-white animate-fade-in relative"
             style={{
               textShadow: '0 0 30px rgba(14, 165, 233, 0.3)',
               transformStyle: 'preserve-3d',
@@ -168,12 +168,12 @@ export default function LandingPage() {
               IoT Solutions
             </span>
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto relative z-10">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto relative z-10 px-2">
             Empowering businesses with intelligent, connected devices that transform operations and drive efficiency.
           </p>
           
           {/* Animated Stats */}
-          <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto mt-12">
+          <div className="grid grid-cols-3 gap-3 sm:gap-6 md:gap-8 max-w-3xl mx-auto mt-8 sm:mt-12">
             {[
               { value: '10M+', label: 'Devices' },
               { value: '99.9%', label: 'Uptime' },
@@ -181,13 +181,13 @@ export default function LandingPage() {
             ].map((stat, i) => (
               <div
                 key={i}
-                className="card hover:scale-110 transition-all duration-300 relative overflow-hidden group"
+                className="card p-3 sm:p-4 md:p-6 hover:scale-110 transition-all duration-300 relative overflow-hidden group"
                 style={{ transformStyle: 'preserve-3d' }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative z-10">
-                  <div className="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">{stat.value}</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-primary-600 dark:text-primary-400 mb-1 sm:mb-2">{stat.value}</div>
+                  <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
                 </div>
               </div>
             ))}
@@ -196,12 +196,12 @@ export default function LandingPage() {
       </section>
 
       {/* Products Showcase */}
-      <section className="container mx-auto px-6 py-12 relative z-10">
-        <h2 className="text-3xl font-bold text-center mb-12 relative">
+      <section className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 relative z-10">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 md:mb-12 relative">
           <span className="relative z-10">Our Products</span>
-          <span className="absolute inset-0 blur-lg opacity-30 text-primary-500">Our Products</span>
+          <span className="absolute inset-0 blur-lg opacity-30 text-primary-500 hidden sm:block">Our Products</span>
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {PRODUCTS.map((product, index) => (
             <ProductCard3D key={product.id} product={product} index={index} />
           ))}
@@ -209,19 +209,19 @@ export default function LandingPage() {
       </section>
 
       {/* Company Info */}
-      <section className="container mx-auto px-6 py-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <section className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
           <div 
-            className="card relative overflow-hidden group"
+            className="card p-4 sm:p-6 relative overflow-hidden group"
             style={{ transformStyle: 'preserve-3d' }}
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div className="relative z-10">
-              <h2 className="text-2xl font-bold mb-4">What We Build</h2>
-              <p className="text-gray-600 dark:text-gray-400 mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">What We Build</h2>
+              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-3 sm:mb-4">
                 We specialize in creating cutting-edge IoT devices that seamlessly integrate into your infrastructure.
               </p>
-              <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-400">
+              <ul className="list-disc list-inside space-y-1.5 sm:space-y-2 text-sm sm:text-base text-gray-600 dark:text-gray-400">
                 <li className="hover:translate-x-2 transition-transform duration-200">Remote monitoring and control systems</li>
                 <li className="hover:translate-x-2 transition-transform duration-200">Real-time analytics and insights</li>
                 <li className="hover:translate-x-2 transition-transform duration-200">Automated response and alerts</li>
@@ -230,13 +230,13 @@ export default function LandingPage() {
             </div>
           </div>
           <div 
-            className="card relative overflow-hidden group"
+            className="card p-4 sm:p-6 relative overflow-hidden group"
             style={{ transformStyle: 'preserve-3d' }}
           >
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div className="relative z-10">
-              <h2 className="text-2xl font-bold mb-4">Our Achievements</h2>
-              <div className="space-y-4">
+              <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Our Achievements</h2>
+              <div className="space-y-3 sm:space-y-4">
                 {[
                   { title: '10M+ Devices Deployed', desc: 'Trusted by enterprises worldwide' },
                   { title: '99.9% Uptime', desc: 'Reliable infrastructure you can count on' },
@@ -247,8 +247,8 @@ export default function LandingPage() {
                     className="hover:scale-105 transition-transform duration-200"
                     style={{ transformStyle: 'preserve-3d' }}
                   >
-                    <h3 className="font-semibold">{achievement.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-400">{achievement.desc}</p>
+                    <h3 className="font-semibold text-sm sm:text-base">{achievement.title}</h3>
+                    <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">{achievement.desc}</p>
                   </div>
                 ))}
               </div>
@@ -258,13 +258,13 @@ export default function LandingPage() {
       </section>
 
       {/* Partnerships */}
-      <section className="container mx-auto px-6 py-12 relative z-10">
-        <h2 className="text-3xl font-bold text-center mb-8">Trusted Partners</h2>
-        <div className="flex flex-wrap justify-center gap-8">
+      <section className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 relative z-10">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">Trusted Partners</h2>
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8">
           {['TechCorp', 'CloudSystems', 'DataFlow', 'SmartNet'].map((partner, i) => (
             <div
               key={i}
-              className="text-2xl font-bold opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer"
+              className="text-lg sm:text-xl md:text-2xl font-bold opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer"
               style={{
                 textShadow: '0 0 20px rgba(14, 165, 233, 0.3)',
                 transformStyle: 'preserve-3d',
@@ -277,8 +277,8 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="container mx-auto px-6 py-8 text-center text-gray-600 dark:text-gray-400 relative z-10">
-        <p>&copy; 2024 IoT Solutions Inc. All rights reserved.</p>
+      <footer className="container mx-auto px-4 sm:px-6 py-6 sm:py-8 text-center text-gray-600 dark:text-gray-400 relative z-10">
+        <p className="text-sm sm:text-base">&copy; 2024 IoT Solutions Inc. All rights reserved.</p>
       </footer>
     </div>
   );

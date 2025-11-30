@@ -29,7 +29,7 @@ export default function ProductCard3D({ product, index }) {
   return (
     <div
       ref={cardRef}
-      className="card relative overflow-hidden group cursor-pointer transition-all duration-300"
+      className="card p-4 sm:p-6 relative overflow-hidden group cursor-pointer transition-all duration-300"
       style={{
         transformStyle: 'preserve-3d',
         animationDelay: `${index * 0.1}s`,
@@ -40,7 +40,7 @@ export default function ProductCard3D({ product, index }) {
     >
       {/* 3D Icon Effect */}
       <div
-        className="text-6xl mb-4 transition-transform duration-500"
+        className="text-4xl sm:text-5xl md:text-6xl mb-3 sm:mb-4 transition-transform duration-500"
         style={{
           transform: isHovered
             ? 'translateZ(50px) rotateY(360deg) scale(1.2)'
@@ -61,8 +61,8 @@ export default function ProductCard3D({ product, index }) {
 
       {/* Content */}
       <div className="relative z-10">
-        <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
-        <p className="text-gray-600 dark:text-gray-400">{product.description}</p>
+        <h3 className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2">{product.name}</h3>
+        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">{product.description}</p>
       </div>
 
       {/* Shine Effect */}
